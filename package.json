@@ -1,4 +1,7 @@
 {
+  "name": "eztzlib",
+  "version": "0.0.1",
+  "main": "src/main.js",
   "dependencies": {
     "bip39": "^2.5.0",
     "bs58check": "^2.1.1",
@@ -6,7 +9,8 @@
     "codecov": "^2.3.1",
     "libsodium-wrappers": "^0.5.4",
     "pbkdf2": "^3.0.14",
-    "xmlhttprequest": "^1.8.0"
+    "xmlhttprequest": "^1.8.0",
+    "xhr2": "^0.1.4"
   },
   "scripts": {
     "test": "jest",
