@@ -541,6 +541,22 @@ rpc = {
     }
     return rpc.sendOperation(from, operation, keys);
   },
+  transferBatch: function (from, keys, toObjArr, fee = 0, parameter = false, gasLimit = '200', storageLimit = '0') {
+    var operations = [];
+    if (!Array.isArray(toObjArr)) return {error: "Operations must be an array"};
+    toObjArr.forEach((toObj) =>
+    {
+      operations.push({
+        kind: 'transaction',
+        fee: fee.toString(),
+        gas_limit: gasLimit,
+        storage_limit: storageLimit,
+        amount: utility.mutez(toObj['amount']).toString(),
+        destination: toObj['to'],
+      });
+    });
+    return rpc.sendOperation(from, operations, keys);
+  },
   activate: function (pkh, secret) {
     var operation = {
       "kind": "activate_account",
